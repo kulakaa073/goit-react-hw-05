@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { fetchMovieInfo } from '../services/movieServices';
-import MovieDetails from '../components/MovieDetails/MovieDetails';
+import { fetchMovieInfo } from '../../services/movieServices';
+import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import { NavLink, Outlet, useParams, useLocation } from 'react-router-dom';
-import BackButton from '../components/BackButton/BackButton';
+import BackButton from '../../components/BackButton/BackButton';
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();

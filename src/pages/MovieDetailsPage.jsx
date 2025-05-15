@@ -9,7 +9,7 @@ export default function MovieDetailsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [movieInfo, setMovieInfo] = useState(null);
   const location = useLocation();
-  const backLinkHref = location.state ?? '/';
+  const backLinkHref = location.state ?? '/movies';
 
   useEffect(() => {
     setIsLoading(true);

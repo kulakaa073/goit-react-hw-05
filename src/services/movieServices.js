@@ -27,41 +27,53 @@ export const fetchTrending = async () => {
 };
 
 export const fetchSearch = async (query, page = 1) => {
-  const response = await axios.get('search/movie', {
-    params: {
-      ...options.params,
-      query: query,
-      include_adult: 'false',
-      page: page,
-    },
-    headers: options.headers,
-  });
-  return response.data;
+  const response = await axios
+    .get('search/movie', {
+      params: {
+        ...options.params,
+        query: query,
+        include_adult: 'false',
+        page: page,
+      },
+      headers: options.headers,
+    })
+    .then(response => response.data)
+    .catch(error => console.error(error));
+  return response;
 };
 
 export const fetchMovieInfo = async movieId => {
-  const response = await axios.get(`movie/${movieId}`, {
-    params: options.params,
-    headers: options.headers,
-  });
-  return response.data;
+  const response = await axios
+    .get(`movie/${movieId}`, {
+      params: options.params,
+      headers: options.headers,
+    })
+    .then(response => response.data)
+    .catch(error => console.error(error));
+  return response;
 };
 
 export const fetchMovieCast = async movieId => {
-  const response = await axios.get(`movie/${movieId}/credits`, {
-    params: options.params,
-    headers: options.headers,
-  });
-  return response.data;
+  const response = await axios
+    .get(`movie/${movieId}/credits`, {
+      params: options.params,
+      headers: options.headers,
+    })
+    .then(response => response.data)
+    .catch(error => console.error(error));
+  return response;
 };
 
 export const fetchMovieReviews = async (movieId, page = 1) => {
-  const response = await axios.get(`movie/${movieId}/reviews`, {
-    params: {
-      ...options.params,
-      page: page,
-    },
-    headers: options.headers,
-  });
-  return response.data;
+  const response = await axios
+    .get(`movie/${movieId}/reviews`, {
+      params: {
+        ...options.params,
+        page: page,
+      },
+      headers: options.headers,
+    })
+    .then(response => response.data)
+    .catch(error => console.error(error));
+  return response;
 };

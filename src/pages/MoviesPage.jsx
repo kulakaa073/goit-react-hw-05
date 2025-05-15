@@ -7,9 +7,7 @@ export default function MoviesPage() {
   const [searchParams] = useSearchParams();
   return (
     <div>
-      <p>search bar</p>
       <MovieSearch />
-      <p>movies found</p>
       {searchParams.toString() && <MoviesList />}
     </div>
   );

@@ -29,14 +29,16 @@ export default function MoviesList() {
       {moviesList.length > 0 && (
         <ul>
           {moviesList.map(movie => (
-            <Link
-              to={`/movies/${movie.id}`}
-              key={movie.id}
-              style={{ display: 'block' }} //change later
-              state={location}
-            >
-              {movie.title}
-            </Link>
+            <li key={movie.id}>
+              <Link
+                to={`/movies/${movie.id}`}
+                key={movie.id}
+                style={{ display: 'block' }} //change later
+                state={location}
+              >
+                {movie.title}
+              </Link>
+            </li>
           ))}
         </ul>
       )}

@@ -1,5 +1,10 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import css from './BackButton.module.css';
 
 export default function BackButton({ to }) {
-  return <Link to={to}>Go back</Link>;
+  return (
+    <NavLink to={to} className={css.button}>
+      Go back
+    </NavLink>
+  );
 }

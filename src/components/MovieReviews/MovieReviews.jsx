@@ -11,7 +11,7 @@ export default function MovieReviews() {
     setIsLoading(true);
     fetchMovieReviews(movieId)
       .then(data => setReviewsList(data.results))
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   }, [movieId]);
 
   return (
@@ -27,7 +27,7 @@ export default function MovieReviews() {
           ))}
         </ul>
       )}
-      {reviewsList.length === 0 && (
+      {!isLoading && reviewsList.length === 0 && (
         <div>We dont have any reviews for this movie...</div>
       )}
     </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { fetchMovieInfo } from '../../services/movieServices';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import { NavLink, Outlet, useParams, useLocation } from 'react-router-dom';
@@ -9,7 +9,7 @@ export default function MovieDetailsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [movieInfo, setMovieInfo] = useState(null);
   const location = useLocation();
-  const backLinkHref = location.state ?? '/movies';
+  const backLinkHref = useRef(location.state) ?? '/movies';
 
   useEffect(() => {
     setIsLoading(true);
@@ -20,7 +20,7 @@ export default function MovieDetailsPage() {
 
   return (
     <div>
-      <BackButton to={backLinkHref} />
+      <BackButton to={backLinkHref.current} />
       {isLoading && <p>Loading...</p>}
       {movieInfo && <MovieDetails movieInfo={movieInfo} />}
       <ul>

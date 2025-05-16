@@ -11,7 +11,7 @@ export default function MovieCast() {
     setIsLoading(true);
     fetchMovieCast(movieId)
       .then(data => setCastList(data.cast))
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   }, [movieId]);
 
   return (
@@ -29,6 +29,9 @@ export default function MovieCast() {
             <p>Character: {actor.character}</p>
           </div>
         ))}
+      {!isLoading && castList.length === 0 && (
+        <div>We dont have any cast info for this movie...</div>
+      )}
     </div>
   );
 }

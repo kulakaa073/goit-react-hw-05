@@ -2,12 +2,11 @@ import css from './MovieDetails.module.css';
 
 export default function MovieDetails({ movieInfo }) {
   const genres = movieInfo.genres.map(genre => genre.name).join(', ');
-  //console.log(movieInfo);
   return (
     <div className={css.container}>
       <img
         src={`https://image.tmdb.org/t/p/w500/${movieInfo.poster_path}`}
-        alt={movieInfo.title}
+        alt={`Sorry, we dont have a poster of ${movieInfo.title}`}
         width="250"
         height="375"
       />
